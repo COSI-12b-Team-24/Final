@@ -18,6 +18,14 @@ The GUI
 – there should be a search button with a search textfield, 
 		– when you click search, it will write the information in the textArea
 
+new (potential) GUI elements
+— scrollbar
+– border lines
+– separator lines
+– tooltip
+– slider??
+– color chooser??
+
 Read/Write to a file:
 
 
