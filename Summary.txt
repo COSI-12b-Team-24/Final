@@ -15,9 +15,19 @@ The GUI
 – there should be buttons to read/write from a file
 – there should be a textArea that logs your actions.
 		— the textArea should have a scroll bar
-– there should be a search button with a search textfield, so that when you click search, if it 
-— there should be a delete button to 
-	
+– there should be a search button with a search textfield, 
+		– when you click search, it will write the information in the textArea
+
 Read/Write to a file:
+
+
+Optional:
+	– Delete button & textField
 	
-	
+– – – – – – – – – – – – – – – – – – – – – – – – – – – – 
+TASKS:
+1. Make the "Entry" class, and a Hash/TreeMap of type <String,Entry>
+2. Make the GUI
+	a. add ActionListeners to the buttons.
+3. Add function for writing to the textArea
+4. Add functions for read/write to file
