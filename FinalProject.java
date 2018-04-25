@@ -4,9 +4,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.HashMap;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
 import java.util.Set;
 import java.io.File;
 import java.io.PrintWriter;
@@ -34,6 +31,16 @@ public class FinalProject
 	{
 		Entry e = new Entry(name, email, phoneNumber);
 		addressBook.put(name, e);
+	}
+
+	public static void addEntry (Entry e)
+	{
+		addressBook.put(e.getName(), e);
+	}
+
+	public static Entry searchForEntry (String name)
+	{
+		return addressBook.get(name);
 	}
 
 	public static Map<String,Entry> readFromFile(String fileName)
