@@ -9,27 +9,27 @@ public class Entry{
     this.phone = phone;
   }
 
-  private String getName(){
+  public String getName(){
     return name;
   }
 
-  private String getEmail(){
+  public String getEmail(){
     return email;
   }
 
-  private String getPhone(){
+  public String getPhone(){
     return phone;
   }
 
-  private void setEmail(String email){
+  public void setEmail(String email){
     this.email = email;
   }
 
-  private void setPhone(String phone){
+  public void setPhone(String phone){
     this.phone = phone;
   }
 
-  private String toString(){
+  public String toString(){
     return "name: " + name + ", E-mail: " + email + ", Phone Number: " + phone;
   }
 }
