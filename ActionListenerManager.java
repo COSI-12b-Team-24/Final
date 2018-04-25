@@ -16,12 +16,8 @@ public class ActionListenerManager
         {
           public void actionPerformed(ActionEvent event)
           {
-            String name = nameField.getText();
-            String email = emailField.getText();
-            String phone = phoneField.getText();
+            
 
-            Entry e = new Entry(name, email, phone);
-            FinalProject.addEntry(e);
           }
         }
       );
@@ -35,7 +31,15 @@ public class ActionListenerManager
           {
             public void actionPerformed(ActionEvent event)
             {
+              String name = nameField.getText();
+              String email = emailField.getText();
+              String phone = phoneField.getText();
 
+              Entry e = new Entry(name, email, phone);
+              FinalProject.addEntry(e);
+
+              //write stuff to the log
+              //
             }
           }
         );
