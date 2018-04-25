@@ -25,6 +25,8 @@ public class FinalProject
 	{
 		//creates GUI
 		AddressBook.main(args);
+
+		addressBook = readFromFile("AddressBookData.txt");
 	}
 
 	public static void addEntry (String name, String email, String phoneNumber)

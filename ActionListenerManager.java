@@ -8,6 +8,11 @@ import javax.swing.JTextArea;
 
 public class ActionListenerManager
 {
+  //  Add these lines to the end of the Main() routine in AddressBookData
+  //  ActionListenerManager.AddActionToSearchButton(search, searchF, log);
+  //  ActionListenerManager.AddActionToAddButton(add,name,email,phone,log);
+
+
   public static void AddActionToSearchButton(JButton searchButton, JTextField searchField, JTextArea textArea)
   {
       searchButton.addActionListener
@@ -21,12 +26,14 @@ public class ActionListenerManager
             if (result == null)
             {
               String text = textArea.getText();
-              text+= "\n Name: "+nameToSearchFor+" not found in address book";
+              text+= "\n Name: "+nameToSearchFor+" not found in address book\n";
               textArea.setText(text);
             }
             else
             {
-              //TODO
+              String text = textArea.getText();
+              text+= "\nName: "+result.getName()+"\nEmail: "+result.getEmail()+"\nPhone: "+result.getPhone()+"\n";
+              textArea.setText(text);
             }
 
           }
@@ -34,7 +41,7 @@ public class ActionListenerManager
       );
     }
 
-    public static void AddActionToAddButton(JButton addButton, JTextField nameField ,JTextField emailField, JTextField phoneField)
+    public static void AddActionToAddButton(JButton addButton, JTextField nameField ,JTextField emailField, JTextField phoneField, JTextArea textArea)
     {
         addButton.addActionListener
         (
@@ -49,8 +56,9 @@ public class ActionListenerManager
               Entry e = new Entry(name, email, phone);
               FinalProject.addEntry(e);
 
-              //write stuff to the log
-              //
+              String text = textArea.getText();
+              text+= "\nAdded "+name+" to the address Book\n";
+              textArea.setText(text);
             }
           }
         );
