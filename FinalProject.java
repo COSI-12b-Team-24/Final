@@ -23,17 +23,23 @@ public class FinalProject
 {
 	private static Map<String, Entry> addressBook;
 	private static char DC = '*'; //delimiter character
-	
+
 	public static void main(String[] args)
 	{
 		//creates GUI
 		AddressBook.main(args);
 	}
-	
+
+	public static void addEntry (String name, String email, String phoneNumber)
+	{
+		Entry e = new Entry(name, email, phoneNumber);
+		addressBook.put(name, e);
+	}
+
 	public static Map<String,Entry> readFromFile(String fileName)
 	{
 		Map<String,Entry> readMap = new HashMap<String,Entry>();
-      	
+
 		try
 		{
 			File file = new File(fileName);
@@ -52,32 +58,31 @@ public class FinalProject
 			readMap.put(name,new Entry(name,email,phoneNumber));
      	}
         	scanner.close();
-	} 
+	}
       	catch (FileNotFoundException e)
       	{
         	System.out.println(e+" Filename: "+fileName);
       	}
-      
+
 		return readMap;
 	}
-	
-	
+
+
 	public static void writeToFile(String fileName)
 	{
-		try 
+		try
 		{
 	        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
-			Set<String> keys = addressBook.keySet();
+					Set<String> keys = addressBook.keySet();
 
 	        for(String name: keys)
 	        {
 	        	Entry entry = addressBook.get(name);
-
 	        	writer.println(name+DC+entry.getEmail()+DC+entry.getPhone());
 	        }
 
 	        writer.close();
-	  } 
+	  }
 	  catch (FileNotFoundException e)
 	  {
 			System.out.println(e+" Filename: "+fileName);
@@ -88,5 +93,5 @@ public class FinalProject
 	  }
 
 	}
-	
+
 }
