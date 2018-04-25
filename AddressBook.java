@@ -12,7 +12,9 @@ public class AddressBook extends JPanel{
   JFrame frame = new JFrame("Final Project");
   JPanel content = new JPanel();
   content.setLayout(new BorderLayout());
-  JTextField name = new JTextField("Tim");
+  Border border = BorderFactory.createEtchedBorder();
+  JTextField name1 = new JTextField("Tim");
+  JTextField name2 = new JTextField("Tim");
   JTextField email = new JTextField("timhickey@brandeis.edu");
   JTextField phone  = new JTextField("781-736-2706");
   JTextField searchF = new JTextField(" ",50);
@@ -21,7 +23,8 @@ public class AddressBook extends JPanel{
   JLabel ab = new JLabel("<html><h1>Address Book</h1></html>");
   ab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
   content.add(ab,BorderLayout.PAGE_START);
-  JLabel nam = new JLabel("Name: ");
+  JLabel nam1 = new JLabel("Name: ");
+  JLabel nam2 = new JLabel("Name: ");
   JLabel mail = new JLabel("Email: ");
   JLabel num = new JLabel("Phone: ");
 
@@ -35,12 +38,20 @@ public class AddressBook extends JPanel{
   log.setEditable(false);
 
   JPanel left = new JPanel();
-  left.setLayout(new GridLayout(0,2));
-  left.add(nam); left.add(name);
+  left.setLayout(new GridLayout(0,1));
+  left.add(nam1); left.add(name1);
   left.add(mail); left.add(email);
   left.add(num); left.add(phone);
-  left.add(search); left.add(add);
-  content.add(left,BorderLayout.LINE_START);
+  left.add(add); 
+  Border addBorder = BorderFactory.createTitledBorder(border, "Add");
+  left.setBorder(addBorder);
+    
+  JPanel searchPanel = new JPanel();
+  searchPanel.setLayout(new GridLayout(0,1,10,50));
+  searchPanel.add(nam2); searchPanel.add(name2);
+  searchPanel.add(search); 
+  Border srchBorder = BorderFactory.createTitledBorder(border, "Search");
+  searchPanel.setBorder(srchBorder);
 
   JScrollPane scroll = new JScrollPane(log);
   scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -49,6 +60,11 @@ public class AddressBook extends JPanel{
   right.add(log);
   right.add(scroll);
   content.add(right,BorderLayout.CENTER);
+    
+  JTabbedPane tabbedPane = new JTabbedPane ();
+  tabbedPane.addTab ("Add", left);
+  tabbedPane.addTab("Search", searchPanel);
+  content.add(tabbedPane,BorderLayout.LINE_START);
 
   JPanel bottom = new JPanel();
   bottom.setLayout(new BorderLayout());
@@ -58,7 +74,7 @@ public class AddressBook extends JPanel{
 
 
   frame.setContentPane(content);
-  frame.setSize(500,500);
+  frame.setSize(700,300);
   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   frame.setVisible(true);
   }
