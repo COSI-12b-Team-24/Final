@@ -34,14 +34,63 @@ public class FinalProject
 		//fill this out
 	}
 	
-	public static Map<String,Entry> readToFile()
+	public static Map<String,Entry> readFromFile(String fileName)
 	{
-		// fill this out
+		Map<String,Entry> readMap = new HashMap<String,Entry>();
+      	
+		try
+		{
+			File file = new File(fileName);
+			Scanner scanner = new Scanner(file);
+			while (scanner.hasNext())
+	        {
+				String line = scanner.nextLine();
+				int delimiter = line.indexOf(DC);
+				String name = line.substring(0,delimiter);
+
+				int delimiter2 = line.indexOf(DC,delimiter+1);
+				String email = line.substring(delimiter+1,delimiter2);
+
+				String phoneNumber = line.substring(delimiter2+1);
+
+				readMap.put(name,new Entry(name,email,phoneNumber));
+        	}
+        	scanner.close();
+      } 
+      	catch (FileNotFoundException e)
+      	{
+        	System.out.println(e+" Filename: "+fileName);
+      	}
+      
+      return readMap;
 	}
 	
-	public static Map<String,Entry> writeToFile()
+	
+	public static void writeToFile(String fileName)
 	{
-		// fill this out
+		try 
+		{
+	        PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+			Set<String> keys = addressBook.keySet();
+
+	        for(String name: keys)
+	        {
+	        	Entry entry = addressBook.get(name);
+
+	          	writer.println(name+DC+entry.getEmail()+DC+entry.getPhone());
+	        }
+
+	        writer.close();
+	  } 
+	  catch (FileNotFoundException e)
+	  {
+		System.out.println(e+" Filename: "+fileName);
+	  }
+	  catch (Exception e)
+	  {
+		System.out.println(e);
+	  }
+
 	}
 	
 	public static class Entry
