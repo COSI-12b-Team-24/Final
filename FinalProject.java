@@ -4,10 +4,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.HashMap;
 
-//delete whatever we don't end up using
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
