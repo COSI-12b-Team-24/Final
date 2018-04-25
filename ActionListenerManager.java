@@ -8,7 +8,7 @@ import javax.swing.JTextArea;
 
 public class ActionListenerManager
 {
-  public static void AddActionToSearchButton(JButton searchButton, JTextField nameField ,JTextField emailField, JTextField phoneField, JTextArea textArea)
+  public static void AddActionToSearchButton(JButton searchButton, JTextField searchField, JTextArea textArea)
   {
       searchButton.addActionListener
       (
@@ -16,7 +16,18 @@ public class ActionListenerManager
         {
           public void actionPerformed(ActionEvent event)
           {
-            
+            String nameToSearchFor = searchField.getText();
+            Entry result = FinalProject.searchForEntry(nameToSearchFor);
+            if (result == null)
+            {
+              String text = textArea.getText();
+              text+= "\n Name: "+nameToSearchFor+" not found in address book";
+              textArea.setText(text);
+            }
+            else
+            {
+              //TODO
+            }
 
           }
         }
