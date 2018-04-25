@@ -33,30 +33,35 @@ public class FinalProject
 		catch (Exception e)
 		{
 			addressBook = new HashMap<String,Entry>();
+			writeToFile("AddressBookData.txt");
 		}
-	}
-
-	public static void addEntry (String name, String email, String phoneNumber)
-	{
-		Entry e = new Entry(name, email, phoneNumber);
-		addressBook.put(name, e);
-		PrintAddressBook();
 	}
 
 	public static void addEntry (Entry e)
 	{
 		addressBook.put(e.getName(), e);
-		PrintAddressBook();
+		writeToFile("AddressBookData.txt");
 	}
+
+	public static void addEntry (String name, String email, String phoneNumber)
+	{
+		Entry e = new Entry(name, email, phoneNumber);
+		addEntry(e);
+	}
+
+
 
 	public static Entry searchForEntry (String name)
 	{
+		System.out.println("searching for:"+name);
+		PrintAddressBook();
+
 		return addressBook.get(name);
 	}
 
 	public static Map<String,Entry> readFromFile(String fileName)
 	{
-		Map<String,Entry> readMap = new HashMap<String,Entry>();
+		Map<String,Entry> readMap = new TreeMap<String,Entry>();
 
 		try
 		{
@@ -64,23 +69,23 @@ public class FinalProject
 			Scanner scanner = new Scanner(file);
 			while (scanner.hasNext())
 	    {
-			String line = scanner.nextLine();
-			int delimiter = line.indexOf(DC);
-			String name = line.substring(0,delimiter);
+				String line = scanner.nextLine();
+				int delimiter = line.indexOf(DC);
+				String name = line.substring(0,delimiter);
 
-			int delimiter2 = line.indexOf(DC,delimiter+1);
-			String email = line.substring(delimiter+1,delimiter2);
+				int delimiter2 = line.indexOf(DC,delimiter+1);
+				String email = line.substring(delimiter+1,delimiter2);
 
-			String phoneNumber = line.substring(delimiter2+1);
+				String phoneNumber = line.substring(delimiter2+1);
 
-			readMap.put(name,new Entry(name,email,phoneNumber));
+				readMap.put(name,new Entry(name,email,phoneNumber));
      	}
-        	scanner.close();
-	}
-      	catch (FileNotFoundException e)
-      	{
-        	System.out.println(e+" Filename: "+fileName);
-      	}
+	    scanner.close();
+		}
+  	catch (FileNotFoundException e)
+  	{
+  			System.out.println(e+" Filename: "+fileName);
+  	}
 
 		return readMap;
 	}
@@ -110,6 +115,11 @@ public class FinalProject
 			System.out.println(e);
 	  }
 
+	}
+
+	public static Set<String> getKeySet()
+	{
+		return addressBook.keySet();
 	}
 
 	public static void PrintAddressBook()

@@ -5,6 +5,10 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
+import java.util.Map;
+import java.util.Set;
+
+
 
 public class ActionListenerManager
 {
@@ -26,7 +30,15 @@ public class ActionListenerManager
             if (result == null)
             {
               String text = textArea.getText();
-              text+= "\nName:"+nameToSearchFor+" not found in address book\n";
+              text+= "\nName:"+nameToSearchFor+" not found in address book";
+              text+= "\nNames in AddressBook:";
+
+              Set<String> keys = FinalProject.getKeySet();
+          		for(String name: keys)
+             	{
+      	         text += "\n"+name;
+             	}
+              text += "\n";
               textArea.setText(text);
             }
             else
