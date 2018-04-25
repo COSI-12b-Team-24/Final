@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.Set;
 import java.util.Map;
+import java.awt.Scrollbar;
 
 public class AddressBook extends JPanel{
   public static void main(String[] args){
@@ -15,15 +16,23 @@ public class AddressBook extends JPanel{
   JTextField email = new JTextField("timhickey@brandeis.edu");
   JTextField phone  = new JTextField("781-736-2706");
   JTextField searchF = new JTextField(" ",50);
+  searchF.setEditable(false);
 
+  JLabel ab = new JLabel("<html><h1>Address Book</h1></html>");
+  ab.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+  content.add(ab,BorderLayout.PAGE_START);
   JLabel nam = new JLabel("Name: ");
   JLabel mail = new JLabel("Email: ");
   JLabel num = new JLabel("Phone: ");
 
+
   JButton add = new JButton("Add");
+  add.setToolTipText("Click this button to add a new item in the AddressBook Log.");
   JButton search = new JButton("Search");
+  search.setToolTipText("Click this button to to search the AddressBook.");
 
   JTextArea log = new JTextArea(" ");
+  log.setEditable(false);
 
   JPanel left = new JPanel();
   left.setLayout(new GridLayout(0,2));
@@ -33,9 +42,12 @@ public class AddressBook extends JPanel{
   left.add(search); left.add(add);
   content.add(left,BorderLayout.LINE_START);
 
+  JScrollPane scroll = new JScrollPane(log);
+  scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
   JPanel right = new JPanel();
   right.setLayout(new BorderLayout());
   right.add(log);
+  right.add(scroll);
   content.add(right,BorderLayout.CENTER);
 
   JPanel bottom = new JPanel();
