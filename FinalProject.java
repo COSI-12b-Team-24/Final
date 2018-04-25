@@ -21,13 +21,8 @@ public class FinalProject
 	
 	public static void main(String[] args)
 	{
-		//fill this out
-		CreateGUI();
-	}
-	
-	public static void CreateGUI()
-	{
-		//fill this out
+		//creates GUI
+		AddressBook.main(args);
 	}
 	
 	public static Map<String,Entry> readFromFile(String fileName)
