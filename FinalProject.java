@@ -7,6 +7,12 @@ import java.util.HashMap;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import java.util.Set;
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+
 /**
 * Final Project for COSI 12b Spring 2018
 * We are going to make a Address Book.
@@ -15,9 +21,8 @@ import java.awt.event.ActionEvent;
 **/
 public class FinalProject
 {
-	Map<String, Entry> addressBook;
-	
-	//static references to certain GUI things
+	private static Map<String, Entry> addressBook;
+	private static char DC = '*'; //delimiter character
 	
 	public static void main(String[] args)
 	{
