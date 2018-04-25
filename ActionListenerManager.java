@@ -9,12 +9,11 @@ import java.util.Map;
 import java.util.Set;
 
 
-
+/**
+* Methods for adding actionListeners with related actions to buttons
+**/
 public class ActionListenerManager
 {
-  //  Add these lines to the end of the Main() routine in AddressBookData
-  //  ActionListenerManager.AddActionToSearchButton(search, searchF, log);
-  //  ActionListenerManager.AddActionToAddButton(add,name,email,phone,log);
 
   public static void AddActionToSearchButton(JButton searchButton, JTextField searchField, JTextArea textArea)
   {
@@ -30,7 +29,7 @@ public class ActionListenerManager
             if (result == null)
             {
               String text = textArea.getText();
-              text+= "\nName:"+nameToSearchFor+" not found in address book";
+              text+= "\nName: "+nameToSearchFor+" not found in address book";
               text+= "\nNames in AddressBook:";
 
               Set<String> keys = FinalProject.getKeySet();

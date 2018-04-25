@@ -54,7 +54,7 @@ public class FinalProject
 	public static Entry searchForEntry (String name)
 	{
 		System.out.println("searching for:"+name);
-		PrintAddressBook();
+		// PrintAddressBook();
 
 		return addressBook.get(name);
 	}

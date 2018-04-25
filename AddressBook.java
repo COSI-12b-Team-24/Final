@@ -14,8 +14,8 @@ public class AddressBook extends JPanel{
   JPanel content = new JPanel();
   content.setLayout(new BorderLayout());
   Border border = BorderFactory.createEtchedBorder();
-  JTextField name1 = new JTextField("Tim");
-  JTextField name2 = new JTextField("Tim");
+  JTextField name1 = new JTextField("Tim"); //name field in to "add"
+  JTextField name2 = new JTextField("Tim"); //name field for "search"
   JTextField email = new JTextField("timhickey@brandeis.edu");
   JTextField phone  = new JTextField("781-736-2706");
   JTextField searchF = new JTextField(" ",50);
@@ -43,14 +43,14 @@ public class AddressBook extends JPanel{
   left.add(nam1); left.add(name1);
   left.add(mail); left.add(email);
   left.add(num); left.add(phone);
-  left.add(add); 
+  left.add(add);
   Border addBorder = BorderFactory.createTitledBorder(border, "Add");
   left.setBorder(addBorder);
-    
+
   JPanel searchPanel = new JPanel();
   searchPanel.setLayout(new GridLayout(0,1,10,50));
   searchPanel.add(nam2); searchPanel.add(name2);
-  searchPanel.add(search); 
+  searchPanel.add(search);
   Border srchBorder = BorderFactory.createTitledBorder(border, "Search");
   searchPanel.setBorder(srchBorder);
 
@@ -58,7 +58,7 @@ public class AddressBook extends JPanel{
   Border infoBorder = BorderFactory.createTitledBorder(border, "Info");
   scroll.setBorder(infoBorder);
   content.add(scroll,BorderLayout.CENTER);
-    
+
   JTabbedPane tabbedPane = new JTabbedPane ();
   tabbedPane.addTab ("Add", left);
   tabbedPane.addTab("Search", searchPanel);
@@ -69,7 +69,8 @@ public class AddressBook extends JPanel{
   bottom.add(searchF);
   content.add(bottom, BorderLayout.PAGE_END);
 
-
+  ActionListenerManager.AddActionToSearchButton(search, name2, log);
+  ActionListenerManager.AddActionToAddButton(add,name1,email,phone,log);
 
   frame.setContentPane(content);
   frame.setSize(600,350);
