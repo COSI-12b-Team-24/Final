@@ -55,14 +55,9 @@ public class AddressBook extends JPanel{
   searchPanel.setBorder(srchBorder);
 
   JScrollPane scroll = new JScrollPane(log);
-  scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-  JPanel right = new JPanel();
-  right.setLayout(new BorderLayout());
-  right.add(log);
-  right.add(scroll);
   Border infoBorder = BorderFactory.createTitledBorder(border, "Info");
-  right.setBorder(infoBorder);
-  content.add(right,BorderLayout.CENTER);
+  scroll.setBorder(infoBorder);
+  content.add(scroll,BorderLayout.CENTER);
     
   JTabbedPane tabbedPane = new JTabbedPane ();
   tabbedPane.addTab ("Add", left);
