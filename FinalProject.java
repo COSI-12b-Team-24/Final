@@ -89,8 +89,4 @@ public class FinalProject
 
 	}
 	
-	public static class Entry
-	{
-		// fill this out
-	}
 }
