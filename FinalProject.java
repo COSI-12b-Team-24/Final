@@ -39,26 +39,26 @@ public class FinalProject
 			File file = new File(fileName);
 			Scanner scanner = new Scanner(file);
 			while (scanner.hasNext())
-	        {
-				String line = scanner.nextLine();
-				int delimiter = line.indexOf(DC);
-				String name = line.substring(0,delimiter);
+	    {
+			String line = scanner.nextLine();
+			int delimiter = line.indexOf(DC);
+			String name = line.substring(0,delimiter);
 
-				int delimiter2 = line.indexOf(DC,delimiter+1);
-				String email = line.substring(delimiter+1,delimiter2);
+			int delimiter2 = line.indexOf(DC,delimiter+1);
+			String email = line.substring(delimiter+1,delimiter2);
 
-				String phoneNumber = line.substring(delimiter2+1);
+			String phoneNumber = line.substring(delimiter2+1);
 
-				readMap.put(name,new Entry(name,email,phoneNumber));
-        	}
+			readMap.put(name,new Entry(name,email,phoneNumber));
+     	}
         	scanner.close();
-      } 
+	} 
       	catch (FileNotFoundException e)
       	{
         	System.out.println(e+" Filename: "+fileName);
       	}
       
-      return readMap;
+		return readMap;
 	}
 	
 	
@@ -73,18 +73,18 @@ public class FinalProject
 	        {
 	        	Entry entry = addressBook.get(name);
 
-	          	writer.println(name+DC+entry.getEmail()+DC+entry.getPhone());
+	        	writer.println(name+DC+entry.getEmail()+DC+entry.getPhone());
 	        }
 
 	        writer.close();
 	  } 
 	  catch (FileNotFoundException e)
 	  {
-		System.out.println(e+" Filename: "+fileName);
+			System.out.println(e+" Filename: "+fileName);
 	  }
 	  catch (Exception e)
 	  {
-		System.out.println(e);
+			System.out.println(e);
 	  }
 
 	}
