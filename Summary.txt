@@ -1,3 +1,5 @@
+TEAM PLANNING
+
 We are going to make a Address Book.
 You can enter a name, their email address, their phone number and it will be saved.
 You can search for a name, and it will show you their email address and phone number.
