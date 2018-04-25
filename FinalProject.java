@@ -26,18 +26,27 @@ public class FinalProject
 		//creates GUI
 		AddressBook.main(args);
 
-		addressBook = readFromFile("AddressBookData.txt");
+		try
+		{
+			addressBook = readFromFile("AddressBookData.txt");
+		}
+		catch (Exception e)
+		{
+			addressBook = new HashMap<String,Entry>();
+		}
 	}
 
 	public static void addEntry (String name, String email, String phoneNumber)
 	{
 		Entry e = new Entry(name, email, phoneNumber);
 		addressBook.put(name, e);
+		PrintAddressBook();
 	}
 
 	public static void addEntry (Entry e)
 	{
 		addressBook.put(e.getName(), e);
+		PrintAddressBook();
 	}
 
 	public static Entry searchForEntry (String name)
@@ -101,6 +110,18 @@ public class FinalProject
 			System.out.println(e);
 	  }
 
+	}
+
+	public static void PrintAddressBook()
+	{
+		Set<String> keys = addressBook.keySet();
+		for(String name: keys)
+       	{
+	        	Entry entry = addressBook.get(name);
+	        	System.out.println(name+DC+entry.getEmail()+DC+entry.getPhone());
+       	}
+
+	    System.out.println("***");
 	}
 
 }

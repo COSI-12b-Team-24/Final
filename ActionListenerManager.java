@@ -12,7 +12,6 @@ public class ActionListenerManager
   //  ActionListenerManager.AddActionToSearchButton(search, searchF, log);
   //  ActionListenerManager.AddActionToAddButton(add,name,email,phone,log);
 
-
   public static void AddActionToSearchButton(JButton searchButton, JTextField searchField, JTextArea textArea)
   {
       searchButton.addActionListener
@@ -23,10 +22,11 @@ public class ActionListenerManager
           {
             String nameToSearchFor = searchField.getText();
             Entry result = FinalProject.searchForEntry(nameToSearchFor);
+
             if (result == null)
             {
               String text = textArea.getText();
-              text+= "\n Name: "+nameToSearchFor+" not found in address book\n";
+              text+= "\nName:"+nameToSearchFor+" not found in address book\n";
               textArea.setText(text);
             }
             else
