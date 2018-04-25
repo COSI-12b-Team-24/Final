@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.HashMap;
@@ -59,6 +60,8 @@ public class AddressBook extends JPanel{
   right.setLayout(new BorderLayout());
   right.add(log);
   right.add(scroll);
+  Border infoBorder = BorderFactory.createTitledBorder(border, "Info");
+  right.setBorder(infoBorder);
   content.add(right,BorderLayout.CENTER);
     
   JTabbedPane tabbedPane = new JTabbedPane ();
@@ -74,7 +77,7 @@ public class AddressBook extends JPanel{
 
 
   frame.setContentPane(content);
-  frame.setSize(700,300);
+  frame.setSize(600,350);
   frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   frame.setVisible(true);
   }
